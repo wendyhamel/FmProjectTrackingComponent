@@ -11,41 +11,56 @@
   <!--  font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+
+
+  <!-- Alpine Core -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <title>Frontend Mentor | Project tracking intro component</title>
 
 </head>
 <body class="antialiased">
-  <header>
-    <nav>
-      <ul>
-        <li>
+  <div class="absolute top-0 right-0 rounded-bl-[60px] bg-blue-100 w-1/2 h-[424px]"></div>
+  <header class="relative flex items-center justify-between pt-9 px-8">
+    <a href=""><img class="w-6" src="images/logo.svg" alt=""></a>
+    <nav x-data="{ mobileNavigationOpened: false }">
+      <button x-on:click="mobileNavigationOpened = !mobileNavigationOpened" class="grid md:hidden">
+        <span class="sr-only">Toggle navigation menu</span>
+        <img class="col-start-1 row-start-1 pt-1 transition" :class="mobileNavigationOpened ? 'opacity-0' : 'opacity-100'" src="./images/icon-hamburger.svg" alt="">
+        <img class="col-start-1 row-start-1 h-5 transition place-self-end" :class="mobileNavigationOpened ? 'opacity-100' : 'opacity-0'" src="./images/icon-close.svg" alt="">
+      </button>
+      <ul
+          class="absolute z-10 top-24 inset-x-8 scale-y-0 opacity-0 transition origin-top duration-200 transform md:opacity-100 md:scale-100 md:inline-flex md:gap-6 md:relative"
+          :class="{'scale-y-100 opacity-100 bg-white shadow-xl rounded text-center px-6 py-3 text-lg uppercase tracking-widest font-special font-bold': mobileNavigationOpened}"
+      >
+        <li class="py-2.5">
           <a href="">Product</a>
         </li>
-        <li>
+        <li class="py-2.5">
           <a href="">Features</a>
         </li>
-        <li>
+        <li class="py-2.5">
           <a href="">Pricing</a>
         </li>
-        <li>
-          <a href="">Login</a>
+        <li class="pb-3 pt-5 mt-2 border-t border-blue-100">
+          <a class="text-blue-200" href="">Login</a>
         </li>
       </ul>
     </nav>
   </header>
-<main>
-  <section>
-    <p class="uppercase font-special inline-flex gap-2 items-baseline">
-      <span class="rounded-full px-3 py-0.5 bg-blue-400 text-blue-100 font-bold">New</span>
-      <span class="text-blue-200 tracking-wider">Monograph Dashboard</span>
+<main class="relative overflow-hidden">
+  <img class="object-cover scale-[1.35] origin-top-left mt-[3.75rem] ml-2 mb-32" src="./images/illustration-devices.svg" alt="">
+  <section class="px-8 pt-5">
+    <p class="mt-0.5 uppercase font-special inline-flex gap-4 items-baseline">
+      <span class="rounded-full px-2.5 py-1 bg-blue-400 text-blue-100 font-bold leading-none">New</span>
+      <span class="text-blue-200 tracking-[0.275em]">Monograph Dashboard</span>
     </p>
-    <h1 class="uppercase font-special text-blue-400 font-bold text-xl">Powerful insights into your team</h1>
-    <p class="text-blue-300">Project planning and time tracking for agile teams</p>
-    <div class="flex gap-4 items-center">
-      <button class="uppercase bg-red text-blue-100 font-bold rounded px-4 py-2">Schedule a demo</button>
-      <p class="uppercase text-blue-200 font-bold tracking-wider">to see a live preview</p>
+    <h1 class="uppercase font-special text-blue-400 font-bold text-[2.5rem] leading-none mt-4">Powerful insights into your team</h1>
+    <p class="text-blue-300 text-lg pt-4">Project planning and time tracking <br class="sm:hidden"/> for agile teams</p>
+    <div class="flex gap-5 items-center mt-6">
+      <button class="uppercase font-special text-sm bg-red text-blue-100 font-bold leading-none tracking-wider rounded px-6 py-3">Schedule a demo</button>
+      <p class="uppercase font-special text-sm text-blue-200 tracking-[0.2em]">to see a preview</p>
     </div>
   </section>
 </main>
