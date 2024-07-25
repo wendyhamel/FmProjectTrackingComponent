@@ -997,6 +997,14 @@ video {
   padding-top: 1rem;
 }
 
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
+.pb-24 {
+  padding-bottom: 6rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1347,6 +1355,10 @@ video {
 
   .md\:gap-11 {
     gap: 2.75rem;
+  }
+
+  .md\:overflow-hidden {
+    overflow: hidden;
   }
 
   .md\:rounded-full {
